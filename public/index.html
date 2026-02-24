@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>IAT Human Artifact Experiment</title>
+    <title>IAT Animals Experiment</title>
     <script src="https://unpkg.com/jspsych@8.0.0"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
 
@@ -198,8 +198,8 @@
             const block_3 = {
                 type: jsPsychHtmlKeyboardResponse,
                 choices: [" "],
-                stimulus: `<p>Use the D key for ${category_displays[2][0][1] ? `<b>` + category_displays[2][0][1] + `</b> and for <b>${category_displays[2][0][0]}. </b> ` : `<b>` + category_displays[2][0][0] + `</b>`} <br/><br/>` +
-                    `Use the K key for ${category_displays[2][1][1] ? `<b>` + category_displays[2][1][1] + `</b> and for <b>${category_displays[2][1][0]}</b>. ` : `<b>` + category_displays[2][1][0] + `</b>`}<br/><br/>` +
+                stimulus: `<p>Use the D key for ${category_displays[3][0][1] ? `<b>` + category_displays[3][0][1] + `</b> and for <b>${category_displays[3][0][0]}. </b> ` : `<b>` + category_displays[3][0][0] + `</b>`} <br/><br/>` +
+                    `Use the K key for ${category_displays[3][1][1] ? `<b>` + category_displays[3][1][1] + `</b> and for <b>${category_displays[3][1][0]}</b>. ` : `<b>` + category_displays[3][1][0] + `</b>`}<br/><br/>` +
                     "Each item belongs to only one category. <br/><br/>" +
                     "If you make a mistake, a red X will appear. Press the correct key to continue. Go as fast as you can while being accurate. <br/><br/><br/><br/>" +
                     "Press the <b>space bar</b> when you are ready to start.</p>"
@@ -630,8 +630,8 @@
 
         async function sendResults(results) {
             try {
-                // const response = await fetch('http://localhost:3000/submit-results', {
-                const response = await fetch('https://iat-animal.vercel.app/submit-results', {
+                const response = await fetch('http://localhost:3000/submit-results', {
+                // const response = await fetch('https://iat-animal.vercel.app/submit-results', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -668,7 +668,7 @@
         }
 
         #jspsych-iat-stim img{
-            transform: translateY(-40%);
+            transform: translateY(-20%);
         }
 
         #trial_left_align{
@@ -680,7 +680,7 @@
         }
 
         #wrongImgContainer{
-            top:-635px !important;
+            top:-600px !important;
         }
 
 
