@@ -1,0 +1,129 @@
+body{
+    font-family: "Roboto", sans-serif !important;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
+
+}
+
+html{
+    height: 100vh;
+}
+
+/* jsPsych container */
+.jspsych-content{
+    max-width: 1200px;
+    width: 95%;
+    margin: auto;
+}
+
+.left{
+    text-align: left;
+}
+
+/* demographic form layout */
+
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:24px;
+    width:100%;
+}
+
+.container section{
+    flex:1 1 400px;
+    min-width:260px;
+    text-align:left;
+}
+
+/* input styling */
+
+.demo-input{
+    padding:14px 16px;
+    margin-top:10px;
+    border:none;
+    outline:none;
+    background:#f1f1f1;
+    width:100%;
+    max-width:400px;
+    border-radius:5px;
+}
+
+/* IAT stimulus */
+
+#jspsych-iat-stim{
+    font-size:clamp(28px,4vw,48px);
+    font-weight:bold;
+}
+
+#jspsych-iat-stim img{
+    transform: translateY(-20%);
+    max-width:500px;
+    height:auto;
+    max-height: 350px;
+}
+
+/* IAT category alignment */
+
+#trial_left_align{
+    left:15% !important;
+}
+
+#trial_right_align{
+    right:15% !important;
+}
+
+/* error X */
+
+#wrongImgContainer{
+    top:-60vh !important;
+}
+
+/* survey formatting */
+
+.jspsych-survey-html-form-preamble{
+    width:100%;
+}
+
+.jspsych-survey-html-form-preamble h1{
+    width:100%;
+    font-weight:800 !important;
+    text-align:left;
+}
+
+.jspsych-btn{
+    margin-top:24px !important;
+    margin-left:0 !important;
+}
+
+/* mobile responsiveness */
+
+@media (max-width:768px){
+
+    #trial_left_align{
+        left:5% !important;
+    }
+
+    #trial_right_align{
+        right:5% !important;
+    }
+
+    #jspsych-iat-stim img{
+        max-width:70vw;
+        height:auto;
+        transform:none;
+    }
+
+    .container{
+        flex-direction:column;
+    }
+
+    .container section{
+        width:100%;
+    }
+
+    .jspsych-content{
+        width:95%;
+    }
+
+}

@@ -5,7 +5,9 @@
     <title>IAT Animals Experiment</title>
     <script src="https://unpkg.com/jspsych@8.0.0"></script>
     <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="styles.css">
     <link rel="preload" as="image" href="words_animate_Cat1.PNG">
     <link rel="preload" as="image" href="words_animate_Cat2.PNG">
     <link rel="preload" as="image" href="images.PNG">
@@ -30,6 +32,15 @@
         let images;
         let category_displays;
         let cat_img;
+
+        if(window.innerWidth < 768){
+            document.body.innerHTML = `
+            <div style="text-align:center;margin-top:100px;font-family:Roboto;">
+                <h2>Please use a laptop or desktop</h2>
+                <p>This experiment requires a keyboard.</p>
+            </div>
+        `;
+        }
 
         async function preload_images(data){
             let preloadedImages = []
@@ -137,12 +148,7 @@
                 type: jsPsychSurveyHtmlForm,
                 preamble: '',
                 html: `
-                    <style>
-                    .jspsych-content{
-                    text-align: left;
-                    }
-                    </style>
-                    <div style="max-width: 1200px">
+                    <div style="max-width: 1200px" class="left">
                             <label style="text-align: left !important;">The research study you are about to do is sponsored by Rochester Institute of Technology (RIT). The task you are asked to do involves making simple responses to images, words, and sentences.
                             <br><br>This task has no direct benefits. We do not anticipate any psychosocial, social, or legal risks. Participants may become fatigued or frustrated due to the length of the study. The responses you submit as part of this task will be stored on a secure server and accessible only to researchers who have been approved by RIT. Processed data with all identifiers removed could be used for future research studies or distributed to another investigator for future research studies without additional informed consent from the subject or a legally authorized representative.
 
@@ -173,7 +179,7 @@
             const block_0 = {
                 type: jsPsychHtmlKeyboardResponse,
                 choices: [" "],
-                stimulus:`<img src='${cat_img}' style='max-width: 500px;' alt="">` +
+                stimulus:`<img src='${cat_img}' style='max-width:500px;width:100%;height:auto;' alt="">` +
                     `<p>Put a left finger on the D key for items that belong to the category <b>${category_displays[1][0]}</b>. <br/><br/>` +
                     `Put a right finger on the K key for items that belong to the category <b>${category_displays[1][1]}</b>. <br/><br/>` +
                     "Items will appear one at a time. <br/><br/>" +
@@ -342,54 +348,6 @@
                 type: jsPsychSurveyHtmlForm,
                 preamble: '<h1>DEMOGRAPHIC INFORMATION</h1>',
                 html: `
-
-                    <style>
-                          .container {
-                            display: flex;
-                            justify-content: center;
-                            flex-wrap: wrap;
-                            margin-top: 24px;
-                            gap: 48px 0;
-                            width:1100px;
-                            height:50vh;
-                            padding-bottom: 24px;
-                          }
-                          .column {
-                            width: 45%;
-                          }
-                          .column input[type="text"], .column input[type="radio"], .column input[type="checkbox"] {
-                            margin-top: 5px;
-                            margin-bottom: 15px;
-                          }
-
-                          .container section{
-                          width:50%;
-                          text-align: left;
-                          }
-
-                          .demo-input{
-                            padding: 18px 24px;
-                            margin-left: 12px;
-                            margin-top: 12px;
-                            border: none;
-                            outline:none;
-                            background: #f1f1f1;
-                            min-width: 200px;
-                            width: 100%;
-                            border-radius: 5px ;
-                          }
-
-                          .jspsych-content{
-                                text-align: left;
-                                margin: auto;
-                                height: 100vh;
-                                display: grid;
-                                place-content: center;
-                                place-items: start;
-                                width: 80%;
-                            }
-
-                        </style>
                         <div class="container">
                             <section>
                                 <label for="age" style="font-weight: bold">Age:</label><br>
@@ -445,54 +403,6 @@
                 type: jsPsychSurveyHtmlForm,
                 preamble: '<h1>DEMOGRAPHIC INFORMATION</h1>',
                 html: `
-                        <style>
-                          .container {
-                            display: flex;
-                            justify-content: start;
-                            flex-wrap: wrap;
-                            margin-top: 24px;
-                            gap: 48px 0;
-                            width:1100px;
-                            height:50vh;
-                            padding-bottom: 24px;
-                          }
-                          .column {
-                            width: 45%;
-                          }
-                          .column input[type="text"], .column input[type="radio"], .column input[type="checkbox"] {
-                            margin-top: 5px;
-                            margin-bottom: 15px;
-                          }
-
-                          .container section{
-                          width:50%;
-                          text-align: left;
-                          }
-
-                          .demo-input{
-                            padding: 18px 24px;
-                            margin-left: 12px;
-                            margin-top: 12px;
-                            border: none;
-                            outline:none;
-                            background: #f1f1f1;
-                            min-width: 200px;
-                            width: 100%;
-                            border-radius: 5px ;
-                          }
-
-                          .jspsych-content{
-                            text-align: left;
-                            margin: auto;
-                            height: 100vh;
-                            display: grid;
-                            place-content: center;
-                            place-items: start;
-                            width: 80%;
-                        }
-
-                          </style>
-
                         <div class="container">
 
                             <section>
@@ -655,53 +565,6 @@
         }
 
     </script>
-    <style>
-        body{
-            font-family: "Roboto", sans-serif !important;
-            font-optical-sizing: auto;
-            font-variation-settings: "wdth" 100;
-        }
-
-        #jspsych-iat-stim{
-            font-size: 48px;
-            font-weight: bold;
-        }
-
-        #jspsych-iat-stim img{
-            transform: translateY(-20%);
-        }
-
-        #trial_left_align{
-            left:28% !important;
-        }
-
-        #trial_right_align{
-            right: 28% !important;
-        }
-
-        #wrongImgContainer{
-            top:-600px !important;
-        }
-
-
-
-        .jspsych-survey-html-form-preamble h1{
-            width:100%;
-            font-weight: 800 !important;
-            text-align: left;
-
-        }
-
-        .jspsych-survey-html-form-preamble{
-            width:100%;
-        }
-
-        .jspsych-btn{
-            margin-top: 24px!important;
-            margin-left:0 !important;
-        }
-
-    </style>
 </head>
 <body>
 
