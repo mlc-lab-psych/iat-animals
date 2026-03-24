@@ -442,7 +442,7 @@
 
             const demographics_three = {
                 type: jsPsychSurveyMultiSelect,
-                preamble: "<strong>Please indicate if you did not understand the meaning of some of the words in Categories 1 and 2. Select all that apply:</strong>",
+                preamble: "<strong>Please indicate if you did NOT understand the meaning of some of the words in Categories 1 and 2. Select any that you did not understand:</strong>",
                 questions: [
                     {
                         prompt: "",
@@ -528,7 +528,7 @@
                 choices:'NO_KEYS',
                 on_start: function (data) {
                     setTimeout(()=>{
-                        window.location = "https://app.prolific.com/submissions/complete?cc=CLL8IJGA"
+                        window.location = `https://rit.az1.qualtrics.com/jfe/form/SV_0DkQMT9M3jFY16e?PROLIFIC_ID=${worker_id}`
                     }, 10000)
                 }
             }
