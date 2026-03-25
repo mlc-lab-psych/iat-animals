@@ -492,14 +492,6 @@
                     elements:
                         [
                             {
-                                type: 'text',
-                                title: "Do you have any comments about the study?",
-                                name: 'comments',
-                                placeholder: 'Comments here',
-                                columns: 80,
-                                isRequired: true
-                            },
-                            {
                                 type: 'radiogroup',
                                 title: "Did you experience any technical difficulties with this task?",
                                 name: 'technical_difficulties',
@@ -524,7 +516,7 @@
 
             const end_block = {
                 type: jsPsychHtmlKeyboardResponse,
-                stimulus: '<p>Thanks for participating! You will be now redirected to Prolific in 10s.</p>',
+                stimulus: '<p>Thanks for participating! You will be now redirected to Qualtrics within 10s.</p>',
                 choices:'NO_KEYS',
                 on_start: function (data) {
                     setTimeout(()=>{
