@@ -570,7 +570,7 @@
             const comment_block = {
                 type: jsPsychSurveyHtmlForm,
                 html: `
-                    <div class="left">
+                    <div style="text-align: center;">
                         <p style="font-weight: bold">Did you experience any technical difficulties with this task?</p>
                         <input type="radio" id="technical_difficulties_yes" name="technical_difficulties" value="Yes" required>
                         <label for="technical_difficulties_yes">Yes</label><br>
@@ -578,7 +578,7 @@
                         <label for="technical_difficulties_no">No</label><br><br>
 
                         <label style="font-weight: bold" for="difficulty_description">If yes, please describe your experience.</label><br>
-                        <input class="demo-input" placeholder="Describe any technical difficulties" type="text" id="difficulty_description" name="difficulty_description">
+                        <input class="demo-input" style="margin-left: 0;" placeholder="Describe any technical difficulties" type="text" id="difficulty_description" name="difficulty_description">
                     </div>
                 `,
                 button_label: 'Continue',
