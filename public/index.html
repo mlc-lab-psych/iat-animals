@@ -16,9 +16,7 @@
 
     <script defer src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script>
     <script defer src="https://unpkg.com/@jspsych/plugin-survey-html-form@1.0.3"></script>
-    <script defer src="https://unpkg.com/@jspsych/plugin-survey@1.0.1"></script>
     <script defer src="https://unpkg.com/@jspsych/plugin-iat-html@1.1.3"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@1.0.1/css/survey.css">
     <script defer src="https://unpkg.com/@jspsych/plugin-survey-multi-select@1.1.3"></script>
 
     <script>
@@ -559,45 +557,31 @@
             timeline.push(demographics_three)
 
             const demographic_four = {
-                type: jsPsychSurvey,
-                survey_json: {
-                    showQuestionNumbers: false,
-                    elements:
-                        [
-                            {
-                                type: 'text',
-                                title: "How would you describe the difference between Category 1 words and Category 2 words?",
-                                name: 'differences',
-                                placeholder: 'Comments here',
-                                isRequired: true
-                            }
-                        ]},
+                type: jsPsychSurveyHtmlForm,
+                html: `
+                    <label style="font-weight: bold" for="differences">How would you describe the difference between Category 1 words and Category 2 words?</label><br>
+                    <input class="demo-input" placeholder="Comments here" type="text" id="differences" name="differences" required>
+                `,
+                button_label: 'Continue'
             }
 
             timeline.push(demographic_four)
 
             const comment_block = {
-                type: jsPsychSurvey,
-                survey_json: {
-                    showQuestionNumbers: false,
-                    elements:
-                        [
-                            {
-                                type: 'radiogroup',
-                                title: "Did you experience any technical difficulties with this task?",
-                                name: 'technical_difficulties',
-                                choices: ["Yes", "No"],
-                                isRequired: true
-                            },
-                            {
-                                type: 'text',
-                                title: "If yes, please describe your experience.",
-                                name: 'difficulty_description',
-                                placeholder: 'Describe any technical difficulties',
-                                required: false
-                            }
+                type: jsPsychSurveyHtmlForm,
+                html: `
+                    <div class="left">
+                        <p style="font-weight: bold">Did you experience any technical difficulties with this task?</p>
+                        <input type="radio" id="technical_difficulties_yes" name="technical_difficulties" value="Yes" required>
+                        <label for="technical_difficulties_yes">Yes</label><br>
+                        <input type="radio" id="technical_difficulties_no" name="technical_difficulties" value="No" required>
+                        <label for="technical_difficulties_no">No</label><br><br>
 
-                        ]},
+                        <label style="font-weight: bold" for="difficulty_description">If yes, please describe your experience.</label><br>
+                        <input class="demo-input" placeholder="Describe any technical difficulties" type="text" id="difficulty_description" name="difficulty_description">
+                    </div>
+                `,
+                button_label: 'Continue',
                 on_finish: function(data) {
                     sendResults(jsPsych.data.get()['trials']);
                 }
